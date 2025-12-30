@@ -9,17 +9,18 @@ Google may provide), as modified from time to time.
 ___INFO___
 
 {
-  "type": "TAG",
-  "id": "cvt_deway_sdk",
-  "version": 1,
-  "securityGroups": [],
   "displayName": "Deway SDK",
-  "categories": ["ANALYTICS", "PERSONALIZATION"],
-  "brand": {
-    "id": "brand_deway",
-    "displayName": "Deway"
-  },
   "description": "Integrate the Deway Web SDK to track and identify users via the Data Layer.",
+  "categories": ["ANALYTICS", "PERSONALIZATION"],
+  "securityGroups": [],
+  "id": "cvt_deway_sdk",
+  "type": "TAG",
+  "version": 1,
+  "brand": {
+    "thumbnail": "",
+    "displayName": "Deway",
+    "id": "brand_deway"
+  },
   "containerContexts": [
     "WEB"
   ]
@@ -30,9 +31,10 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "type": "TEXT",
-    "name": "appKey",
+    "help": "Your Deway application key",
     "displayName": "Deway App Key",
+    "name": "appKey",
+    "type": "TEXT",
     "simpleValueType": true,
     "valueValidators": [
       {
@@ -41,45 +43,13 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
-    "type": "TEXT",
-    "name": "userIdKey",
+    "help": "e.g., user_id or visitorId",
     "displayName": "Data Layer Key for User ID",
-    "simpleValueType": true,
-    "help": "e.g., user_id or visitorId"
+    "name": "userIdKey",
+    "type": "TEXT",
+    "simpleValueType": true
   }
 ]
-
-
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
-
-const injectScript = require('injectScript');
-const callInWindow = require('callInWindow');
-const copyFromDataLayer = require('copyFromDataLayer');
-
-const scriptUrl = 'https://unpkg.com/@deway-ai/web-sdk/dist/loader.umd.js';
-
-// 1. Get the value from the Data Layer
-let userId = copyFromDataLayer(data.userIdKey);
-
-// 2. Set a fallback if the value is null or undefined
-if (!userId) {
-  userId = 'guest_user';
-}
-
-// 3. Inject the external SDK
-injectScript(scriptUrl, () => {
-  
-  // 4. Initialize the SDK
-  callInWindow('Deway.init', {
-    appKey: data.appKey
-  });
-  
-  // 5. Identify the user
-  callInWindow('Deway.identify', userId);
-  
-  data.gtmOnSuccess();
-  
-}, data.gtmOnFailure);
 
 
 ___WEB_PERMISSIONS___
@@ -163,9 +133,34 @@ ___WEB_PERMISSIONS___
 ]
 
 
-___TESTS___
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-scenarios: []
+const injectScript = require('injectScript');
+const callInWindow = require('callInWindow');
+const copyFromDataLayer = require('copyFromDataLayer');
+
+const scriptUrl = 'https://unpkg.com/@deway-ai/web-sdk/dist/loader.umd.js';
+
+// Get the value from the Data Layer
+let userId = copyFromDataLayer(data.userIdKey);
+
+// Set a fallback if the value is null or undefined
+if (!userId) {
+  userId = 'guest_user';
+}
+
+// Inject the external SDK
+injectScript(scriptUrl, function() {
+  // Initialize the SDK
+  callInWindow('Deway.init', {
+    appKey: data.appKey
+  });
+
+  // Identify the user
+  callInWindow('Deway.identify', userId);
+
+  data.gtmOnSuccess();
+}, data.gtmOnFailure);
 
 
 ___NOTES___
