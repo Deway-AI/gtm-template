@@ -1,5 +1,7 @@
 homepage: "https://deway.ai"
 documentation: "https://github.com/Deway-AI/gtm-template/blob/main/README.md"
 versions:
-  - sha: "2422e715a760eb9d9be2ff0ebd9a4e31f9e1a54c"
-    changeNotes: "Initial release of Deway Web SDK template."
+  - sha: b9dded456fb884c658ac75477182b55fefc6e382
+    changeNotes: Updated template format and fixed compatibility issues.
+  - sha: 2422e715a760eb9d9be2ff0ebd9a4e31f9e1a54c
+    changeNotes: Initial release of Deway Web SDK template.
