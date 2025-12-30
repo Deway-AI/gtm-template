@@ -1,0 +1,5 @@
+homepage: "https://deway.ai"
+documentation: "https://github.com/your-username/your-repo-name/blob/main/README.md"
+versions:
+  - sha: "leave_blank_for_now"
+    changeNotes: "Initial release of Deway Web SDK template."
