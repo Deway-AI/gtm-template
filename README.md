@@ -1,8 +1,8 @@
 # Deway Web SDK — Google Tag Manager template
 
 The official **Google Tag Manager custom template** for the
-[Deway Web SDK](https://www.deway.ai) — the autonomous adoption layer that adds an
-AI-powered user-assistance engine to your product. Install and configure Deway
+[Deway Web SDK](https://www.deway.ai) — the guidance agent for your users that gets
+smarter on its own, with no knowledge base to maintain. Install and configure Deway
 entirely from your GTM container, with **no changes to your app bundle**.
 
 This repository exists to publish the template to the **Community Template Gallery**,
