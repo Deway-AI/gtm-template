@@ -1,0 +1,5 @@
+homepage: "https://www.deway.ai"
+documentation: "https://github.com/Deway-AI/gtm-template#readme"
+versions:
+  - sha: 5afca289fc7e9d676fc374c07aafa3ae0a18ce69
+    changeNotes: Initial release.
