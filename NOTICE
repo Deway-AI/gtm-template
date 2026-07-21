@@ -1,0 +1,24 @@
+Deway Web SDK — Google Tag Manager custom template
+Copyright 2026 Deway AI
+
+This product includes software developed at Deway AI (https://www.deway.ai).
+
+------------------------------------------------------------------------------
+Scope of the Apache License, Version 2.0 (see the LICENSE file)
+------------------------------------------------------------------------------
+
+The Apache-2.0 license in this repository applies ONLY to the Google Tag Manager
+custom template contained in `template.tpl` — the thin, sandboxed integration
+"glue" that renders configuration fields, loads the Deway loader script, and
+calls the public `Deway.*` JavaScript API.
+
+The Apache-2.0 license does NOT cover, and grants no rights to, the Deway Web
+SDK itself or any part of the Deway product, including but not limited to:
+
+  * the Deway loader bundle and backend SDK bundle served from
+    https://unpkg.com/@deway-ai/web-sdk and from Deway's own servers;
+  * the Deway backend, agents, APIs, and hosted service;
+  * the Deway brand, name, logo, and trademarks.
+
+Those remain the proprietary property of Deway AI and are governed by Deway's
+own commercial terms, separately from this template wrapper.
