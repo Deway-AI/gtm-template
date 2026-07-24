@@ -1,5 +1,7 @@
 homepage: "https://www.deway.ai"
 documentation: "https://github.com/Deway-AI/gtm-template#readme"
 versions:
+  - sha: 767bb2a602b181245d93a8fdab11c7965ae6305d
+    changeNotes: "Record missing gallery version entry for the current template."
   - sha: 5afca289fc7e9d676fc374c07aafa3ae0a18ce69
     changeNotes: Initial release.
